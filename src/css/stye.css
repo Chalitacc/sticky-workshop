@@ -28,6 +28,8 @@ header {
   font-family: GreatVibes-Regular;
 }
 
+/* -------STYLE FOR FORM---------- */
+
 main {
   height: 100%;
   flex-grow: 1;
@@ -87,4 +89,68 @@ main {
   visibility: hidden; /*can also use display none*/
   text-align: center;
   padding: var(--spacing-x-small);
+}
+
+/* --------STYLE FOR NOTES-----------  */
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--spacing-medium);
+  width: 95%;
+  background-color: var(--color-note-container);
+  flex-grow: 1; /*makes the container take the available space*/
+  margin: 0 auto; /*another way to center it horizontally*/
+  padding: var(--spacing-medium);
+}
+
+.note-card {
+  min-height: 200px;
+  max-height: 250px;
+  background-color: var(--color-note-background);
+
+  /*adding these in case the user do not have spaces between letters, then it will go out of the container, this will prevent it*/
+  line-break: anywhere;
+  hyphens: auto;
+}
+
+.note-card__detail-tools-container {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding-left: var(--spacing-x-small);
+  background-color: var(--color-card-header);
+}
+
+.note-card__details-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  flex-grow: 1;
+  font-family: Kalam-bold;
+}
+
+.note-card__tools-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card__delete-button,
+.note-card__edit-button {
+  flex-grow: 1;
+  padding: var(--spacing-small);
+  background-color: var(--color-note-buttons);
+  border-left: 1px solid black; /*creating border for the space between the two containers*/
+}
+
+.note-card__delete-button {
+  border-bottom: 1px solid black;
+}
+
+.note-card__delete-button:hover,
+.note-card__edit-button:hover {
+  opacity: 0.9;
+}
+
+.note-card__text {
+  padding: var(--spacing-small);
 }

@@ -12,9 +12,9 @@ const addNotes = (subject, date, text) => {
 
   const note = {
     id: uuidv4(),
-    InputSubject: subject.value.trim(),
-    InputDate: date.value.trim(),
-    InputText: text.value.trim(),
+    subject: subject.value.trim(),
+    date: date.value.trim(),
+    text: text.value.trim(),
     rotation: generateRandomNumber(), //making the rotation function on its own instead of here as it will be more clean
   };
 
