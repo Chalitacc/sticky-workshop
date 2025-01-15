@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid"; //importing this url to use uuid
+import storedNotes from "./storedNotes.js";
 
 //generating the random number for the rotation function. math.floor will round the number to what i have created
 export const generateRandomNumber = () => {
@@ -7,6 +8,7 @@ export const generateRandomNumber = () => {
 
 const addNotes = (subject, date, text) => {
   const notesArray = JSON.parse(localStorage.getItem("notes")) || []; //you get it from local storage but if not it will be an empty array where everything will be stored
+  // for not there are nothing stored in the local storage and therefore have to make a function in storeNotes.js
 
   const note = {
     id: uuidv4(),
@@ -21,7 +23,7 @@ const addNotes = (subject, date, text) => {
   notesArray.push(note); //everytime a note is added this function will push it
   console.log(notesArray);
 
-  //   storeNotes() //updating the local storage
+  storedNotes(notesArray); //updating the local storage
 };
 
 export default addNotes;
