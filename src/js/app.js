@@ -7,6 +7,9 @@ const subjectInput = document.querySelector(".form__subject-input");
 const dateInput = document.querySelector(".form__date-input");
 const noteText = document.querySelector(".form__note-input");
 
+//INITIAL RECORDS: When refreshing everything is still there
+document.addEventListener("DOMContentLoaded", renderNotes);
+
 // ADD SUBMIT EVENT TO THE FORM
 form.addEventListener("submit", (e) => {
   e.preventDefault();

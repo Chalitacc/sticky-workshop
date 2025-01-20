@@ -11,7 +11,7 @@ const addNotes = (subject, date, text) => {
   // for not there are nothing stored in the local storage and therefore have to make a function in storeNotes.js
 
   const note = {
-    id: uuidv4(),
+    id: uuidv4(), //UI
     subject: subject.value.trim(),
     date: date.value.trim(),
     text: text.value.trim(),
