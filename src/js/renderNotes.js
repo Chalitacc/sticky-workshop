@@ -59,12 +59,20 @@ const renderNotes = () => {
 
       editButton.addEventListener("click", () => {
         enterEditMode(note.id);
-        document.querySelectorAll("note-card").forEach((card) => {
+        document.querySelectorAll(".note-card").forEach((card) => {
           card.classList.remove("note-card--edited");
         });
         noteCard.classList.add("note-card--edited");
         submitButton.textContent = "Confirm edit";
         submitButton.classList.add("note-card--edited");
+      });
+
+      //BRINGING THE CARD TO THE TOP/ THE FIRST ON THE ROW WHEN ADDING A NEW CARD
+      noteCard.addEventListener("click", () => {
+        document.querySelectorAll(".note-card").forEach((card) => {
+          card.style.zIndex = 0;
+        });
+        noteCard.style.zIndex = 1;
       });
     });
   }
