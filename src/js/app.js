@@ -1,5 +1,6 @@
 import addNotes from "./addNotes.js"; //if not using a bundler, have to add .js, but add it anyways just in case
 import renderNotes from "./renderNotes.js";
+import validateNotes from "./validation.js";
 
 //SELECTING ELEMENTS
 const form = document.querySelector(".form");
@@ -13,6 +14,11 @@ document.addEventListener("DOMContentLoaded", renderNotes);
 // ADD SUBMIT EVENT TO THE FORM
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  // if validation fails, prevent form submission
+  if (!validateNotes(subjectInput, dateInput, noteText)) {
+    return; //will stop it to execute the other codes if this is true
+  }
+
   addNotes(subjectInput, dateInput, noteText);
   renderNotes(); //import in here for when the button is submitted
 });
